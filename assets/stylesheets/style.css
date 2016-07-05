@@ -133,7 +133,7 @@ h2 {
 
 .table-row-item:before {
     content: attr(data-header);
-    width: 30%;
+    width: 70%;
     font-weight: 700;
 }
 
