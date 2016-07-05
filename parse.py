@@ -3,14 +3,14 @@
 from scrape import Scraper
 import datetime
 import calendar
+import sys
 
 """
-Processes player data and turns it into a human-friendly HTML page.
+Processes player data and turns it into a minimalist HTML page.
 Assumes that the scraper script has already been run.
 """
 
 class Parser(object):
-    HTML_PATH = './index.html'
     TOP_100_PATH = './top100.txt'
     DEFAULT_CONTENT = '<!DOCTYPE html><html><head><meta charset=utf-8><meta name="description"' \
         + ' content="A compiled, updatable list of EVO 2016 Super Smash Bros. Melee entrants."/>' \
@@ -31,7 +31,8 @@ class Parser(object):
     DROPOUTS = ('Kevin Nanney') # :(
     CONFIRMED = {'Jeffrey Williamson': ('Axe', 'E611')} # :)
     
-    def __init__(self, content=None):
+    def __init__(self, html_path='./index.html', content=None):
+        self.html_path = html_path
         self.content = content if content is not None else Parser.DEFAULT_CONTENT
         self.players, self.names = [], []
         self.load_players()
@@ -121,7 +122,7 @@ class Parser(object):
         if header_grp:
             sleeper_tables += self.make_table(header_grp, data_grp)
         
-        hfile = open(Parser.HTML_PATH, 'w')
+        hfile = open(self.html_path, 'w')
         hfile.write(self.content % (self.date, miom100_tables, sleeper_tables))
         hfile.close()
     
@@ -145,5 +146,6 @@ class Parser(object):
             return ['st', 'nd', 'rd'][day % 10 - 1]
         
 if __name__ == '__main__':
-    parser = Parser()
+    html_path = sys.argv[1] if len(sys.argv) > 1 else './index.html'
+    parser = Parser(html_path=html_path)
     parser.write()
