@@ -15,8 +15,8 @@ class Parser(object):
     DEFAULT_CONTENT = '<!DOCTYPE html><html><head><meta charset=utf-8><meta name="description"' \
         + ' content="A compiled, updatable list of EVO 2016 Super Smash Bros. Melee entrants."/>' \
         + '<title>EVO 2016 Player List</title><link href=assets/stylesheets/normalize.min.css ' \
-        + 'rel=stylesheet><link href=assets/stylesheets/style.css rel=stylesheet><script ' \
-        + 'src="assets/javascripts/script.js"></script></head><body><h1>EVO 2016 ' \
+        + 'rel=stylesheet><link href=assets/stylesheets/style.min.css rel=stylesheet><script ' \
+        + 'src="assets/javascripts/script.min.js"></script></head><body><h1>EVO 2016 ' \
         + 'Player List</h1><h2>Last updated on %s</h2>%s<h3>Sleeper Picks [MIOM > 100] ' \
         + '(<a id="toggle-link" href="#" onclick="toggleSleepers();return false;">Show</a>)' \
         + '</h3><div id="sleeper" style="display: none">%s</div></body></html>'

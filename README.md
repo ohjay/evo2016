@@ -12,3 +12,9 @@ To create the HTML file (**after** `scrape.py` has been run):
 ```
 ./parse.py [output_path] # default is ./index.html
 ```
+
+Equivalently, replace both commands with
+```
+make # ...or
+make custom [output_path]
+```
