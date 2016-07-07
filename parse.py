@@ -29,7 +29,7 @@ class Parser(object):
     POOL_LINK = '<a href="%s" target="_blank">Pool %s</a>'
     
     DROPOUTS = ('Kevin Nanney') # :(
-    CONFIRMED = {'Jeffrey Williamson': ('Axe', 'E611')} # :)
+    CONFIRMED = {} # {name: (handle, pool)}
     
     def __init__(self, html_path='./index.html', content=None):
         self.html_path = html_path
